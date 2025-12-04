@@ -8,4 +8,20 @@
     <a href="{% url 'post_delete' post.pk %}">Remover</a> |
     <a href="{% url 'post_list' %}">Voltar</a>
   </p>
+
+  <h3>Comentários</h3>
+  {% if post.comments.exists %}
+    <ul>
+      {% for c in post.comments.all %}
+        <li><strong>{{ c.author }}</strong> ({{ c.posted_at|date:"SHORT_DATETIME_FORMAT" }}):<br>
+        {{ c.text }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Sem comentários.</p>
+  {% endif %}
+
+  <p><a href="{% url 'comment_form' post.pk %}">Adicionar Comentário</a></p>
+
 {% endblock %}
+

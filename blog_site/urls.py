@@ -21,5 +21,6 @@ from django.urls import include, path # modificar esta linha
 urlpatterns = [
     path('', include('blog_app.urls')), # modifique esta linha
     path('admin/', admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
 

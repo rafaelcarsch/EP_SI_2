@@ -1,0 +1,10 @@
+{% extends "blog_app/index.html" %}
+{% block content %}
+  <h2>Adicionar comentário ao post: {{ post.title }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <p><label>Comentário</label><br>
+    <textarea name="text" rows="6"></textarea></p>
+    <button type="submit">Enviar</button>
+  </form>
+{% endblock %}
