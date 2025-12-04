@@ -1,0 +1,10 @@
+{% extends "blog_app/index.html" %}
+{% block content %}
+  <h2>Confirmar remoção</h2>
+  <p>Remover o post: "{{ post.title }}"?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sim, remover</button>
+    <a href="{{ post.get_absolute_url }}">Cancelar</a>
+  </form>
+{% endblock %}
