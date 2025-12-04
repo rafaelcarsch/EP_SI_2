@@ -5,7 +5,7 @@
   <a href="{% url 'post_create' %}">Criar novo post</a>
   <ul>
     {% for post in posts %}
-      <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> — {{ post.posted_at|date:"SHORT_DATETIME_FORMAT" }}</li>
+      <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a> Postado em {{ post.posted_at|date:"SHORT_DATETIME_FORMAT" }}</li>
     {% empty %}
       <li>Sem posts</li>
     {% endfor %}

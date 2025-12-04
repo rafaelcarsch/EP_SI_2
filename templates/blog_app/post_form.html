@@ -1,6 +1,8 @@
 {% extends "blog_app/index.html" %}
+
 {% block content %}
-  <h2>{% if post %}Editar post{% else %}Criar post{% endif %}</h2>
+  <h2>{% if object %}Editar post{% else %}Criar post{% endif %}</h2>
+
   <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

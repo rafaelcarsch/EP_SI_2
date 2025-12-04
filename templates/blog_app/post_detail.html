@@ -9,6 +9,15 @@
     <a href="{% url 'post_list' %}">Voltar</a>
   </p>
 
+  <p>Categoria(s):
+    {% for c in post.categories.all %}
+      <a href="{% url 'category_detail' c.pk %}">{{ c.name }}</a>{% if not forloop.last %}, {% endif %}
+    {% empty %}
+      Nenhuma
+    {% endfor %}
+  </p>
+
+
   <h3>Comentários</h3>
   {% if post.comments.exists %}
     <ul>

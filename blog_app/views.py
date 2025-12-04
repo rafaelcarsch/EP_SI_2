@@ -2,7 +2,10 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import Post, Comment
+from .models import Post, Comment, Category
+from django.views import View
+from django.views.generic import ListView, DetailView
+from .forms import PostForm
 
 class PostListView(ListView):
     model = Post
@@ -27,17 +30,16 @@ class PostDetailView(DetailView):
 
 class PostCreateView(CreateView):
     model = Post
-    fields = ['title', 'content']
-    template_name = "blog_app/post_form.html"
+    form_class = PostForm
+    template_name = 'blog_app/post_form.html'
 
     def get_success_url(self):
         return reverse("post_detail", kwargs={"pk": self.object.pk})
 
-
-class PostUpdateView(UpdateView):
+class PostEditView(UpdateView):
     model = Post
-    fields = ['title', 'content']
-    template_name = "blog_app/post_form.html"
+    form_class = PostForm
+    template_name = 'blog_app/post_form.html'
 
     def get_success_url(self):
         return reverse("post_detail", kwargs={"pk": self.object.pk})
@@ -66,3 +68,19 @@ class CommentCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse("post_detail", kwargs={"pk": self.kwargs["post_id"]})
+    
+
+class CategoryListView(ListView):
+    model = Category
+    template_name = 'blog_app/category_list.html'
+    context_object_name = 'categories'
+
+class CategoryDetailView(DetailView):
+    model = Category
+    template_name = 'blog_app/category_detail.html'
+    context_object_name = 'category'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["posts"] = self.object.posts.all()
+        return context

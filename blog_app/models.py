@@ -3,10 +3,21 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 
+class Category(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    description = models.TextField(blank=True)
+
+    class Meta:
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField(help_text="Armazene HTML aqui")
     posted_at = models.DateTimeField(auto_now_add=True)
+    categories = models.ManyToManyField(Category, related_name='posts', blank=True)
 
     class Meta:
         ordering = ['-posted_at']
