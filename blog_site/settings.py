@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-u!%bx-fe)7$bcjlb+mshae)wu(hx8!d07wtdgs8l)-4xqn8f-+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ep-si-2.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['ep-si-2.onrender.com', 'localhost', '127.0.0.1']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -38,7 +38,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 INSTALLED_APPS = [
     "blog_app",
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth',  
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
