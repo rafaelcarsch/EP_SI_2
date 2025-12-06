@@ -12,13 +12,14 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
 
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -27,18 +28,17 @@ STATIC_URL = '/static/'
 SECRET_KEY = 'django-insecure-u!%bx-fe)7$bcjlb+mshae)wu(hx8!d07wtdgs8l)-4xqn8f-+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['ep-si-2.onrender.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = []
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Application definition
 
 INSTALLED_APPS = [
     "blog_app",
     'django.contrib.admin',
-    'django.contrib.auth',  
+    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -85,8 +85,6 @@ DATABASES = {
     }
 }
 
-if os.environ.get("DATABASE_URL"):
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
