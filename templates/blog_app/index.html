@@ -1,8 +1,11 @@
+{% load static %}
+
 <!doctype html>
 <html>
 <head>
   <meta charset="utf-8">
   <title>{% block title %}Blog de Notícias{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'blog_app/style.css' %}">
 </head>
 <body>
   <header>

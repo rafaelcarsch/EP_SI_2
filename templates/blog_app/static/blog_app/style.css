@@ -1,0 +1,217 @@
+/* ===========================
+   BASE GERAL DO SITE
+   =========================== */
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fafafa;
+    color: #333;
+}
+
+/* Header e navegação */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 20px auto;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 a {
+    text-decoration: none;
+    color: #333;
+}
+
+nav a {
+    margin-left: 16px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #000;
+}
+
+/* Área principal */
+main {
+    width: 80%;
+    margin: 20px auto;
+    flex: 1;
+}
+
+/* Rodapé */
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    color: #666;
+}
+
+/* ===========================
+   LISTA DE POSTS (card list)
+   =========================== */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    width: 30%;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card h3 a {
+    text-decoration: none;
+    color: #333;
+}
+
+.card h3 a:hover {
+    text-decoration: underline;
+}
+
+.card small {
+    color: #777;
+}
+
+/* ===========================
+   PÁGINA DE DETALHES DO POST
+   =========================== */
+
+.post-detail {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post-detail h2 {
+    margin-top: 0;
+}
+
+.post-meta {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.post-content {
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+/* Categorias do post */
+.category-badge {
+    display: inline-block;
+    background: #eee;
+    padding: 4px 10px;
+    margin-right: 6px;
+    border-radius: 5px;
+    font-size: 0.85em;
+}
+
+/* ===========================
+   FORMULÁRIOS (criar/editar)
+   =========================== */
+
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+form p {
+    margin-bottom: 12px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #333;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #555;
+}
+
+/* Checkboxes das categorias */
+.checkboxlabel {
+    display: block;
+    margin-bottom: 6px;
+}
+
+/* ===========================
+   COMENTÁRIOS
+   =========================== */
+
+.comment {
+    padding: 12px;
+    background: #f3f3f3;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.comment strong {
+    color: #333;
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+
+@media (max-width: 768px) {
+
+    /* Header vertical no mobile */
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    /* Cards ocupam toda a largura */
+    .card {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    /* Ajuste de layout geral */
+    main, header {
+        width: 90%;
+    }
+}
